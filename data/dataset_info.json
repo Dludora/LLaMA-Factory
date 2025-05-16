@@ -706,7 +706,7 @@
     "folder": "python"
   },
   "dail_bird_origin": {
-    "file_name": "/data/koushurui/Code/Text2SQL/StructSQLRAG/src/data/bird/train/train.json",
+    "file_name": "/data/koushurui/Code/Text2SQL/StructSQLRAG/src/data/bird/train/train_filtered_with_coder.json",
     "split": "train",
     "columns": {
       "prompt": "prompt",

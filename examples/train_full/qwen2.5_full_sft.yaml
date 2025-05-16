@@ -11,7 +11,7 @@ finetuning_type: full
 ### dataset
 dataset: dail_bird_origin
 template: qwen
-cutoff_len: 8192
+cutoff_len: 4096
 overwrite_cache: true
 preprocessing_num_workers: 4
 dataloader_num_workers: 0
@@ -20,8 +20,8 @@ flash_attn: fa2
 ### output
 output_dir: /data/koushurui/Code/LLMS/Qwen/Qwen2.5-Coder-7B-Instruct-BIRD-SFT
 logging_steps: 10
-
-save_steps: 2000
+report_to: ["tensorboard"]
+save_steps: 300
 plot_loss: true
 save_strategy: steps
 overwrite_output_dir: true
@@ -29,13 +29,13 @@ save_only_model: false
 
 ### train
 per_device_train_batch_size: 1
-gradient_accumulation_steps: 2
-learning_rate: 5.0e-6
-weight_decay: 0.01
-max_grad_norm: 0.3
-num_train_epochs: 3.0
-lr_scheduler_type: cosine
-warmup_ratio: 0.03
+gradient_accumulation_steps: 16
+learning_rate: 1.0e-5
+weight_decay: 0
+max_grad_norm: 1.0
+num_train_epochs: 1.0
+lr_scheduler_type: linear
+warmup_ratio: 0.1
 bf16: true
 ddp_timeout: 180000000
 resume_from_checkpoint: null
@@ -46,4 +46,4 @@ gradient_checkpointing: true
 eval_dataset: dail_bird_eval
 per_device_eval_batch_size: 1
 eval_strategy: steps
-eval_steps: 500
+eval_steps: 50
